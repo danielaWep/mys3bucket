@@ -1,0 +1,11 @@
+apiVersion: allbuckets.io/v1alpha1
+kind: Bucket
+metadata:
+  namespace: default
+  name: mys3-Bucket
+spec:
+  compositionRef:
+    name: bucket-composition
+  parameters:
+    name: firstbucket
+    region: eu-central-1
