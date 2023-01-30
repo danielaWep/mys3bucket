@@ -1,0 +1,22 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: bucket-composition
+  labels:
+    provider: aws
+spec:
+  compositeTypeRef:
+    apiVersion: allbuckets.io/v1alpha1
+    kind: XBucket
+  writeConnectionSecretsToNamespace: crossplane-system
+  resources:
+    - name: abucket
+      base:
+        apiVersion: s3.aws.crossplane.io/v1beta1 
+        kind: Bucket
+        spec:
+          forProvider:
+            acl: "public-read"
+            locationConstraint: eu-central-1
+          providerConfigRef:
+            name: aws-provider
