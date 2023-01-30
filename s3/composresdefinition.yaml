@@ -1,0 +1,35 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: CompositeResourceDefinition
+metadata:
+  name: xbuckets.allbuckets.io
+spec:
+  group: allbuckets.io #will be part the apiversion in the claim.yaml file
+  names:
+    kind: XBucket
+    plural: xbuckets
+  claimNames:
+    kind: Bucket
+    plural: buckets 
+  defaultCompositionRef:
+    name: bucket-composition #this will be the name of the composition in the metadata.name
+  versions:
+  - name: v1alpha1 #will be part of apiversion in the claim.yaml
+    served: true
+    referenceable: true
+    schema:
+      openAPIV3Schema:
+        type: object
+        properties:
+          spec:
+            type: object
+            properties:
+              parameters:
+                type: object
+                properties:
+                  name: #this are the parameters that will be defined and needed in the claim
+                    type: string
+                  region:
+                    type: string
+                required: #parameters defined in the lines above
+                  - name
+                  - region
