@@ -2,10 +2,10 @@ apiVersion: allbuckets.io/v1alpha1
 kind: Bucket
 metadata:
   namespace: default
-  name: mys3-Bucket
+  name: mys3-bucket
 spec:
   compositionRef:
     name: bucket-composition
   parameters:
-    name: firstbucket
+    name: firstbucket-daniela-23230127
     region: eu-central-1

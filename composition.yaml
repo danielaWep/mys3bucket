@@ -18,3 +18,5 @@ spec:
           forProvider:
             acl: "public-read"
             locationConstraint: eu-central-1
+          providerConfigRef:
+            name: aws-provider
