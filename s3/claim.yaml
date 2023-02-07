@@ -2,7 +2,7 @@ apiVersion: allbuckets.io/v1alpha1
 kind: Bucket
 metadata:
   namespace: default
-  name: mys3-bucket
+  name: mys3-bucket6
 spec:
   compositionRef:
     name: bucket-composition
